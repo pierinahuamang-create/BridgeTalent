@@ -1,0 +1,17 @@
+Feature: US-10 Eliminar proyectos
+  Como usuario postulante de BridgeTalent, quiero eliminar proyectos de mi portafolio, para mantener solo mi mejor trabajo actualizado.
+
+  Scenario: Confirmación de eliminación
+    Given que el usuario está viendo la lista de sus proyectos
+    When hace clic en el ícono de eliminar en un proyecto
+    Then el sistema muestra un mensaje de confirmación ("¿Estás seguro de eliminar este proyecto?")
+
+  Scenario: Eliminación confirmada
+    Given que el usuario confirma la eliminación
+    When hace clic en "Sí, eliminar"
+    Then el proyecto desaparece de su perfil y de la base de datos
+
+  Scenario: Cancelación de eliminación
+    Given que el usuario cancela la eliminación
+    When hace clic en "Cancelar"
+    Then el proyecto permanece visible en su perfil sin cambios
