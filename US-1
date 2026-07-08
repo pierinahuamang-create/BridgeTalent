@@ -1,1 +1,20 @@
+FUNCION CrearPerfil(usuario_id, nombre, universidad, carrera, ciclo)
+    INICIO
+        SI validarDatos(nombre, universidad, carrera, ciclo) ES FALSO ENTONCES
+            MOSTRAR "Error: Todos los campos son obligatorios"
+            RETORNAR
+        FIN SI
 
+        perfil = NUEVO Perfil()
+        perfil.usuario_id = usuario_id
+        perfil.nombre = nombre
+        perfil.universidad = universidad
+        perfil.carrera = carrera
+        perfil.ciclo = ciclo
+
+        GuardarEnBaseDeDatos(perfil)
+        
+        MOSTRAR "Perfil guardado exitosamente"
+        RedirigirA("Panel Principal")
+    FIN
+FIN FUNCION
