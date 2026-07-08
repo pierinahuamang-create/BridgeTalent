@@ -1,5 +1,7 @@
+# language: es
 Feature: US-10 Eliminar proyectos
-  Como usuario postulante de BridgeTalent, quiero eliminar proyectos de mi portafolio, para mantener solo mi mejor trabajo actualizado.
+  Como usuario postulante de BridgeTalent, quiero eliminar proyectos de mi portafolio, 
+  para mantener solo mi mejor trabajo actualizado.
 
   Scenario: Confirmación de eliminación
     Given que el usuario está viendo la lista de sus proyectos
@@ -15,3 +17,4 @@ Feature: US-10 Eliminar proyectos
     Given que el usuario cancela la eliminación
     When hace clic en "Cancelar"
     Then el proyecto permanece visible en su perfil sin cambios
+
