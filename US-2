@@ -1,0 +1,21 @@
+FUNCION RegistrarHistorialAcademico(usuario_id, institucion, carrera, nota_promedio)
+    INICIO
+        usuario = ObtenerUsuario(usuario_id)
+        
+        SI usuario.tipo_perfil NO ES "Egresado" ENTONCES
+            MOSTRAR "Acceso denegado: Funcionalidad para egresados"
+            RETORNAR
+        FIN SI
+
+        historial = NUEVO Historial()
+        historial.institucion = institucion
+        historial.carrera = carrera
+        historial.nota_promedio = nota_promedio
+
+        usuario.agregarHistorial(historial)
+        GuardarEnBaseDeDatos(usuario)
+        
+        ActualizarVistaPublica(usuario_id)
+        MOSTRAR "Historial académico actualizado"
+    FIN
+FIN FUNCION
