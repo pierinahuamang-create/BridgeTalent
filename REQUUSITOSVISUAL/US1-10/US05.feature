@@ -1,0 +1,22 @@
+Feature: US-05 Actualización de perfil
+  Como usuario postulante de BridgeTalent, 
+  quiero actualizar mis certificados, proyectos y datos académicos cuando quiera, 
+  para que mi perfil siempre refleje mi nivel actual y no quede desactualizado.
+
+Scenario: Actualización de datos personales
+  Given que el usuario está en su perfil
+  When modifica los campos:
+    | Correo | LinkedIn |
+    | p.huaman@upc.edu.pe | linkedin.com/in/pierina |
+  And hace clic en "Guardar"
+  Then el sistema actualiza los datos en tiempo real
+
+  Scenario: Adición de nuevo certificado
+    Given que el usuario agrega un nuevo certificado
+    When carga el archivo correspondiente
+    Then el sistema muestra el nuevo certificado en la sección correspondiente
+
+  Scenario: Actualización de fecha de modificación
+    Given que el usuario realiza cualquier actualización en su perfil
+    When guarda los cambios
+    Then el sistema actualiza la fecha de última modificación visible en el perfil
