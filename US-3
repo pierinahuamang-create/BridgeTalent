@@ -1,0 +1,9 @@
+Feature: US-03 Integración con GitHub
+  Como usuario postulante de BridgeTalent, quiero conectar mi cuenta de GitHub y importar mis repositorios automáticamente, para que así mis proyectos queden visibles en mi perfil sin tener que subirlos manualmente.
+
+  Scenario: Autenticación OAuth, selección e importación detallada de repositorios
+    Given que el usuario postulante se encuentra en la sección de configuración de su portafolio en BridgeTalent y desea agregar evidencias de código
+    When el usuario postulante se autentica exitosamente en la plataforma mediante GitHub OAuth
+    And selecciona de una lista los repositorios específicos para exhibir
+    Then el sistema importa los datos automáticamente
+    And muestra en el perfil público del usuario postulante únicamente los proyectos seleccionados
