@@ -1,0 +1,17 @@
+Feature: US-08 Ocultar proyectos
+  Como usuario postulante de BridgeTalent, quiero ocultar proyectos que están en progreso, para no mostrar trabajo incompleto a los reclutadores.
+
+  Scenario: Ocultar proyecto como borrador
+    Given que el usuario edita un proyecto
+    When marca la opción "Borrador" o "Privado"
+    Then el sistema cambia el estado del proyecto a no visible para reclutadores
+
+  Scenario: Visualización de proyecto oculto por el dueño
+    Given que un proyecto está en estado oculto
+    When el usuario visita su propio perfil
+    Then puede ver el proyecto pero con una etiqueta indicando que está oculto
+
+  Scenario: Publicación de proyecto oculto
+    Given que el usuario desea publicar un proyecto oculto
+    When cambia su estado a "Público"
+    Then el sistema lo muestra inmediatamente en su perfil público
