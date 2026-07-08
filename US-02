@@ -1,9 +1,0 @@
-Feature: US-02 Historial académico
-  Como usuario postulante con perfil de estudiante egresado, quiero poder poner en mis datos a qué universidad y carrera estuve y mis notas promedios, para que así los entrevistadores puedan ver mis datos.
-
-  Scenario: Registro de historial académico mediante ingreso de datos
-    Given que el usuario postulante con perfil de egresado se encuentra en la sección de "Historial Académico" dentro de la edición de su perfil
-    When el usuario postulante ingresa a su institución (ej. Universidad Peruana de Ciencias Aplicadas), su carrera (ej. Ingeniería de Sistemas de Información) y su nota promedio
-    And confirma la acción
-    Then el sistema guarda los datos en la base de datos
-    And actualiza la vista pública del perfil para que la información esté visible para los reclutadores
