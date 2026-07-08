@@ -1,20 +1,9 @@
-FUNCION CrearPerfil(usuario_id, nombre, universidad, carrera, ciclo)
-    INICIO
-        SI validarDatos(nombre, universidad, carrera, ciclo) ES FALSO ENTONCES
-            MOSTRAR "Error: Todos los campos son obligatorios"
-            RETORNAR
-        FIN SI
+Feature: US-01 Creación de perfil
+  Como usuario postulante de BridgeTalent, quiero crear mi perfil en BridgeTalent con mis datos académicos, skills y carrera, para que así estén los datos precargados en el sistema de usuario.
 
-        perfil = NUEVO Perfil()
-        perfil.usuario_id = usuario_id
-        perfil.nombre = nombre
-        perfil.universidad = universidad
-        perfil.carrera = carrera
-        perfil.ciclo = ciclo
-
-        GuardarEnBaseDeDatos(perfil)
-        
-        MOSTRAR "Perfil guardado exitosamente"
-        RedirigirA("Panel Principal")
-    FIN
-FIN FUNCION
+  Scenario: Registro exitoso de perfil
+    Given que el usuario postulante se encuentra registrado en la plataforma BridgeTalent y accede por primera vez a la pantalla de configuración de perfil
+    When el usuario postulante ingresa sus datos válidos (como su nombre, la universidad, la carrera de Ingeniería de Sistemas de Información y su ciclo actual)
+    And presiona el botón de guardar
+    Then el sistema almacena la información en la base de datos
+    And redirige al usuario postulante al panel principal mostrando un mensaje de confirmación
