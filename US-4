@@ -1,0 +1,10 @@
+Feature: US-04 Detalle de proyectos
+  Como usuario postulante de la aplicación BridgeTalent, quiero agregar descripción, contexto y tecnologías usadas a cada proyecto, para que el reclutador entienda qué problema resuelve el proyecto y qué decisiones técnicas tomé.
+
+  Scenario: Registro exitoso de los detalles y metadatos del proyecto
+    Given que el usuario postulante se encuentra en el formulario de edición de un proyecto dentro de su portafolio en BridgeTalent
+    When el usuario postulante redacta una descripción del contexto
+    And selecciona las tecnologías empleadas mediante etiquetas predefinidas
+    And especifica la fecha, el tipo de proyecto ya sea académico o personal y su estado actual
+    Then el sistema guarda la configuración exitosamente
+    And actualiza la tarjeta del proyecto para mostrar toda la información estructurada al reclutador
