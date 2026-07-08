@@ -1,0 +1,13 @@
+Feature: US-09 Descargar portafolio PDF
+  Como usuario postulante de BridgeTalent, quiero descargar mi portafolio como un PDF estructurado, para adjuntarlo manualmente si alguna empresa lo solicita.
+
+  Scenario: Generación exitosa de PDF
+    Given que el usuario está en su perfil
+    When hace clic en el botón "Descargar portafolio PDF"
+    Then el sistema genera un archivo PDF con todos sus proyectos y datos académicos
+    And cuando el usuario lo abre, el formato es profesional, legible y mantiene la estructura de su perfil
+
+  Scenario: Generación de PDF sin proyectos
+    Given que el usuario no tiene proyectos agregados
+    When intenta descargar el PDF
+    Then el sistema genera un documento con sus datos básicos y un mensaje indicando que aún no hay proyectos
