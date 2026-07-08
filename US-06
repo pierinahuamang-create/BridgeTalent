@@ -1,0 +1,17 @@
+Feature: US-06 Subida de archivos
+  Como usuario postulante de BridgeTalent, quiero subir archivos PDF, imágenes o videos de mis proyectos académicos, para mostrar evidencias tangibles de mi trabajo.
+
+  Scenario: Carga exitosa de archivo válido
+    Given que el usuario está en el formulario de proyecto
+    When selecciona un archivo en formato PDF, JPG, PNG o MP4 de hasta 50MB
+    Then el sistema acepta y almacena el archivo
+
+  Scenario: Validación de formato no permitido
+    Given que el usuario intenta subir un archivo de formato no permitido
+    When selecciona el archivo
+    Then el sistema muestra un mensaje de error indicando los formatos válidos
+
+  Scenario: Visualización de archivo en perfil público
+    Given que el usuario sube correctamente un archivo
+    When otro usuario visita su perfil
+    Then puede visualizar o descargar el archivo desde la tarjeta del proyecto
